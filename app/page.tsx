@@ -1,29 +1,26 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState } from "react"
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
     <main
       translate="no"
-      className="relative bg-[#07070c] text-white min-h-screen overflow-x-hidden"
+      className="relative bg-[#07070c] text-white min-h-screen scroll-smooth overflow-x-hidden"
     >
 
-      {/* FUNDO BLINDADO (NÃO INTERFERE NO SCROLL) */}
+      {/* FUNDO ELITE ESTÁVEL */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[#07070c]" />
-        <div className="absolute top-[-150px] left-[-150px] w-[420px] h-[420px] bg-purple-600/15 blur-[90px]" />
-        <div className="absolute bottom-[-150px] right-[-150px] w-[420px] h-[420px] bg-blue-600/10 blur-[90px]" />
+        <div className="absolute top-[-180px] left-[-180px] w-[450px] h-[450px] bg-purple-600/15 blur-[100px]" />
+        <div className="absolute bottom-[-180px] right-[-180px] w-[450px] h-[450px] bg-blue-600/10 blur-[110px]" />
       </div>
 
       {/* NAVBAR */}
       <header className="fixed top-0 w-full bg-black/80 backdrop-blur-md border-b border-white/5 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-4">
 
-          <h1 className="font-bold tracking-[0.35em] text-purple-400 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+          <h1 className="font-bold tracking-[0.4em] text-purple-400 drop-shadow-[0_0_20px_rgba(168,85,247,0.4)]">
             AZRIX
           </h1>
 
@@ -35,39 +32,43 @@ export default function Home() {
             <a href="#contato">CONTATO</a>
           </nav>
 
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden flex flex-col gap-1"
-          >
-            <span className="w-6 h-[2px] bg-white" />
-            <span className="w-6 h-[2px] bg-white" />
-            <span className="w-6 h-[2px] bg-white" />
-          </button>
-
         </div>
       </header>
 
-      {/* HERO */}
-      <section id="home" className="relative z-10 min-h-screen flex items-center justify-center text-center px-4">
+      {/* HERO ELITE */}
+      <section
+        id="home"
+        className="relative z-10 min-h-screen flex items-center justify-center text-center px-4"
+      >
 
         <div className="max-w-3xl">
 
-          <h1 className="text-6xl md:text-8xl font-black tracking-[0.25em] text-purple-400 drop-shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+          <h1 className="text-6xl md:text-8xl font-black tracking-[0.25em] text-purple-400 drop-shadow-[0_0_35px_rgba(168,85,247,0.55)]">
             AZRIX
           </h1>
 
           <p className="mt-6 text-gray-200 text-sm md:text-lg leading-relaxed">
-            A Azrix é uma equipe de <span className="text-white font-semibold">moderação e gestão de comunidades Discord</span>,
-            focada em organização, suporte e administração de servidores de grande porte dentro da cena gamer.
+            A Azrix é uma equipe de moderação e gestão de comunidades Discord,
+            especializada em organização, suporte e administração de servidores de grande porte dentro da cena digital.
           </p>
 
+          {/* BOTÕES FUNCIONANDO */}
           <div className="mt-10 flex flex-col md:flex-row gap-3 justify-center">
-            <a className="px-7 py-3 bg-purple-600 hover:bg-purple-500 rounded font-semibold">
+
+            <a
+              href="#cases"
+              className="px-7 py-3 bg-purple-600 hover:bg-purple-500 rounded font-semibold transition"
+            >
               Ver experiência
             </a>
-            <a className="px-7 py-3 border border-purple-500/40 hover:border-purple-400 rounded font-semibold">
-              Falar com equipe
+
+            <a
+              href="#contato"
+              className="px-7 py-3 border border-purple-500/40 hover:border-purple-400 rounded font-semibold transition"
+            >
+              Falar com a equipe
             </a>
+
           </div>
 
         </div>
@@ -85,30 +86,29 @@ export default function Home() {
           {
             title: "Origem",
             text:
-              "A equipe é formada por moderadores com experiência em comunidades Discord de grande porte, atuando diretamente na organização, suporte e gestão de servidores com alto volume de usuários."
+              "A Azrix nasce da vivência de moderadores e administradores que atuam em comunidades Discord de grande porte, lidando com organização, suporte e gestão de servidores altamente ativos."
           },
           {
             title: "Equipe",
             text:
-              "Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas — todos com experiência prática em moderação, administração e suporte dentro de comunidades digitais ativas."
+              "Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas compõem a equipe, todos com experiência prática em moderação, administração e suporte em comunidades digitais."
           },
           {
-            title: "Experiência em Comunidades",
+            title: "Comunidades e Projetos",
             text:
-              "Atuação em ambientes como o servidor da LOUD (comunidade), além de participação em projetos como Donas do Jogo, Desafio PlayHard e Game Changers."
+              "Atuação em ambientes como o servidor da LOUD (comunidade), além de projetos como Donas do Jogo, Desafio PlayHard e Game Changers."
           },
           {
             title: "Foco de Atuação",
             text:
-              "Gestão de comunidades Discord, moderação ativa, suporte ao usuário, organização de servidores e manutenção de ambientes saudáveis e estruturados."
+              "Gestão de comunidades Discord, moderação ativa, suporte ao usuário e manutenção de ambientes organizados, saudáveis e estruturados."
           }
         ].map((item, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            whileHover={{ scale: 1.02 }}
+            viewport={{ once: true }}
             className="bg-[#141420] border border-white/5 rounded-xl p-6"
           >
             <h3 className="font-bold text-white mb-2">{item.title}</h3>
@@ -153,10 +153,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5 max-w-5xl mx-auto px-4">
 
           {["Jenne", "LC", "Camisa 7", "Bruxo", "Baiano", "Juleas"].map((name, i) => (
-            <div
-              key={i}
-              className="bg-[#141420] p-5 rounded-xl border border-white/5 hover:scale-105 transition"
-            >
+            <div key={i} className="bg-[#141420] p-5 rounded-xl border border-white/5">
               <h3 className="font-bold">{name}</h3>
               <p className="text-gray-400 text-sm mt-2">
                 Moderação / Community Staff
@@ -176,7 +173,7 @@ export default function Home() {
         </h2>
 
         <p className="text-gray-300 mb-6">
-          Suporte e gestão de comunidades Discord.
+          Entre em contato para suporte ou gestão de comunidades Discord.
         </p>
 
         <a
