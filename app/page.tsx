@@ -12,15 +12,14 @@ export default function Home() {
       className="bg-[#07070c] text-white min-h-screen overflow-x-hidden"
     >
 
-      {/* FUNDO PREMIUM */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black" />
-        <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-purple-600/20 blur-[130px]" />
-        <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-blue-600/10 blur-[140px]" />
+      {/* FUNDO LIMPO (SEM EFEITO DE SUMIR) */}
+      <div className="fixed inset-0 pointer-events-none bg-[#07070c]">
+        <div className="absolute top-[-150px] left-[-150px] w-[400px] h-[400px] bg-purple-600/15 blur-[90px]" />
+        <div className="absolute bottom-[-150px] right-[-150px] w-[400px] h-[400px] bg-blue-600/10 blur-[90px]" />
       </div>
 
       {/* NAVBAR */}
-      <header className="fixed top-0 w-full bg-black/70 backdrop-blur-md border-b border-white/5 z-50">
+      <header className="fixed top-0 w-full bg-black/80 backdrop-blur-md border-b border-white/5 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-4">
 
           <h1 className="font-bold tracking-[0.35em] text-purple-400">
@@ -47,7 +46,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO MAIS FORTE */}
+      {/* HERO */}
       <section
         id="home"
         className="relative min-h-screen flex items-center justify-center text-center px-4"
@@ -55,14 +54,14 @@ export default function Home() {
 
         <div className="relative z-10 max-w-3xl">
 
-          <h1 className="text-6xl md:text-8xl font-black tracking-[0.25em] text-purple-400 drop-shadow-[0_0_25px_rgba(168,85,247,0.35)]">
+          <h1 className="text-6xl md:text-8xl font-black tracking-[0.25em] text-purple-400">
             AZRIX
           </h1>
 
           <p className="mt-6 text-gray-200 text-sm md:text-lg leading-relaxed">
             A Azrix é uma equipe especializada em <span className="text-white font-semibold">moderação</span>,
             <span className="text-white font-semibold"> administração</span> e gestão de comunidades Discord,
-            atuando em servidores de grande porte e ambientes de alta atividade dentro da cena digital.
+            atuando em servidores de grande porte e ambientes de alta atividade.
           </p>
 
           <div className="mt-10 flex flex-col md:flex-row gap-3 justify-center">
@@ -70,7 +69,7 @@ export default function Home() {
               Ver experiência
             </a>
             <a className="px-7 py-3 border border-purple-500/40 hover:border-purple-400 rounded font-semibold">
-              Falar com a equipe
+              Falar com equipe
             </a>
           </div>
 
@@ -78,7 +77,7 @@ export default function Home() {
 
       </section>
 
-      {/* CASES / EXPERIÊNCIA */}
+      {/* CASES */}
       <section id="cases" className="max-w-5xl mx-auto px-4 py-24 space-y-12">
 
         <h2 className="text-3xl font-bold text-center text-purple-400">
@@ -100,35 +99,36 @@ export default function Home() {
             {
               title: "Origem",
               text:
-                "A Azrix nasce da vivência de moderadores e administradores que atuaram em comunidades Discord de grande porte, lidando diretamente com organização, suporte, estruturação e manutenção de servidores ativos com alto volume de usuários."
+                "A Azrix nasce da vivência de moderadores e administradores que atuaram em comunidades Discord de grande porte, lidando diretamente com organização, suporte e estruturação de servidores ativos com alto volume de usuários."
             },
             {
               title: "Equipe de Moderação",
               text:
-                "A equipe é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas, todos com experiência prática em moderação, administração e suporte em comunidades digitais de grande escala, atuando diretamente na organização de ambientes complexos e dinâmicos."
+                "A equipe é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas, todos com experiência prática em moderação, administração e suporte em comunidades digitais de grande escala."
             },
             {
               title: "Atuação em Comunidades",
               text:
-                "Os membros já atuaram em comunidades como o servidor da LOUD (comunidade), além de projetos como Donas do Jogo, Desafio PlayHard e Game Changers, sempre focando em suporte, moderação ativa e organização estrutural dos ambientes."
+                "Os membros já atuaram em comunidades como o servidor da LOUD (comunidade), além de projetos como Donas do Jogo, Desafio PlayHard e Game Changers, sempre focando em suporte e organização estrutural."
             },
             {
               title: "Foco de Trabalho",
               text:
-                "A atuação da equipe é voltada para moderação, gestão de comunidades Discord, suporte ao usuário, organização de servidores e manutenção de ambientes saudáveis, estruturados e de alta performance dentro da comunidade."
+                "A atuação é voltada para moderação, gestão de comunidades Discord, suporte ao usuário e manutenção de ambientes organizados, saudáveis e estáveis."
             }
           ].map((item, i) => (
             <motion.div
               key={i}
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                show: { opacity: 1, y: 0 }
-              }}
-              whileHover={{ scale: 1.02, y: -4 }}
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02, y: -3 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="bg-[#141420] border border-white/5 rounded-xl p-6"
             >
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <h3 className="font-bold text-white mb-2">
+                {item.title}
+              </h3>
               <p className="text-gray-200 leading-relaxed">
                 {item.text}
               </p>
@@ -174,7 +174,10 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5 max-w-5xl mx-auto px-4">
 
           {["Jenne", "LC", "Camisa 7", "Bruxo", "Baiano", "Juleas"].map((name, i) => (
-            <div key={i} className="bg-[#141420] p-5 rounded-xl border border-white/5">
+            <div
+              key={i}
+              className="bg-[#141420] p-5 rounded-xl border border-white/5 hover:scale-105 transition"
+            >
               <h3 className="font-bold">{name}</h3>
               <p className="text-gray-400 text-sm mt-2">
                 Moderação / Community Staff
