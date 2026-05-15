@@ -6,7 +6,8 @@ import { useState } from "react"
 export default function Home() {
   const [mouse, setMouse] = useState({ x: 50, y: 50 })
 
-  function handleMouseMove(e: React.MouseEvent) {
+  // ✅ corrigido (sem React.MouseEvent)
+  function handleMouseMove(e: any) {
     const x = (e.clientX / window.innerWidth) * 100
     const y = (e.clientY / window.innerHeight) * 100
     setMouse({ x, y })
@@ -18,10 +19,9 @@ export default function Home() {
       className="bg-[#0b0b10] text-white min-h-screen relative overflow-hidden"
     >
 
-      {/* 🌌 FUNDO DINÂMICO QUE SEGUE O MOUSE */}
+      {/* 🌌 FUNDO DINÂMICO */}
       <div className="absolute inset-0 overflow-hidden">
 
-        {/* gradiente base */}
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 via-black to-black" />
 
         {/* glow que segue o mouse */}
@@ -47,7 +47,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
           <h1 className="font-bold tracking-widest text-purple-400">
-            AZRIX teste
+            AZRIX
           </h1>
 
           <nav className="flex gap-6 text-sm text-gray-300">
@@ -116,51 +116,41 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-8">
 
-          {[
-            {
-              title: "Origem",
-              text: "A Azrix nasceu da experiência real dentro de grandes comunidades de games e esports no Brasil.
-O projeto foi criado a partir da vivência de moderadores e gestores que atuaram em servidores de grande porte, lidando diretamente com organização, suporte e eventos na cena gamer."
-            },
-            {
-              title: "Equipe",
-              text: "A equipe da Azrix é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas.
-Cada integrante possui experiência em moderação, administração e gestão de comunidades de grande porte, atuando diretamente em ambientes de alto movimento dentro da cena de games e esports.
+          {/* ORIGEM */}
+          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:scale-105 transition">
+            <h3 className="text-xl font-bold mb-3 text-white">Origem</h3>
+            <p className="text-gray-300">
+              A Azrix nasceu da experiência real dentro de grandes comunidades de games e esports no Brasil.
+              O projeto foi criado a partir da vivência de moderadores e gestores que atuaram em servidores de grande porte, lidando diretamente com organização, suporte e eventos na cena gamer.
+            </p>
+          </div>
 
-Juntos, contribuem para a organização, suporte e desenvolvimento de projetos comunitários, com foco em manter estrutura, eficiência e boa experiência dentro das comunidades onde atuam."
-            },
-            {
-              title: "Fundadora",
-              text: "A fundadora da Azrix possui mais de 6 anos de experiência na comunidade de esports, atuando diretamente com moderação, administração e gestão de servidores de grande porte.
+          {/* EQUIPE */}
+          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:scale-105 transition">
+            <h3 className="text-xl font-bold mb-3 text-white">Equipe</h3>
+            <p className="text-gray-300">
+              A equipe da Azrix é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas.
+              Cada integrante possui experiência em moderação, administração e gestão de comunidades de grande porte.
+            </p>
+          </div>
 
-Sua trajetória é marcada pela participação ativa em ambientes competitivos, com foco em organização, suporte e desenvolvimento de comunidades dentro da cena gamer."
-            },
-            {
-              title: "Projetos",
-              text: "A equipe da Azrix participou e atuou em diferentes projetos e iniciativas dentro da cena de games e esports, com foco em organização, suporte e experiência comunitária.
+          {/* FUNDAÇÃO */}
+          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:scale-105 transition">
+            <h3 className="text-xl font-bold mb-3 text-white">Fundação</h3>
+            <p className="text-gray-300">
+              A fundadora da Azrix possui mais de 6 anos de experiência na comunidade de esports,
+              atuando com moderação, administração e gestão de servidores de grande porte.
+            </p>
+          </div>
 
-Entre os principais projetos estão Donas do Jogo, Desafio PlayHard e Game Changers, além de atuações em eventos e comunidades competitivas.
-
-Também há experiência em administração e moderação no servidor da LOUD (comunidade), contribuindo para a gestão e manutenção de ambientes de grande porte."
-            }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{
-                scale: 1.06,
-                y: -6
-              }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]"
-            >
-              <h3 className="text-xl font-bold mb-3 text-white">
-                {item.title}
-              </h3>
-              <p className="text-gray-300">
-                {item.text}
-              </p>
-            </motion.div>
-          ))}
+          {/* PROJETOS */}
+          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:scale-105 transition">
+            <h3 className="text-xl font-bold mb-3 text-white">Projetos</h3>
+            <p className="text-gray-300">
+              Donas do Jogo, Desafio PlayHard, Game Changers e atuação em eventos e comunidades competitivas.
+              Também há experiência em administração e moderação no servidor da LOUD (comunidade).
+            </p>
+          </div>
 
         </div>
 
