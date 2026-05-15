@@ -9,20 +9,21 @@ export default function Home() {
   return (
     <main
       translate="no"
-      className="bg-[#07070c] text-white min-h-screen overflow-x-hidden"
+      className="relative bg-[#07070c] text-white min-h-screen overflow-x-hidden"
     >
 
-      {/* FUNDO LIMPO (SEM EFEITO DE SUMIR) */}
-      <div className="fixed inset-0 pointer-events-none bg-[#07070c]">
-        <div className="absolute top-[-150px] left-[-150px] w-[400px] h-[400px] bg-purple-600/15 blur-[90px]" />
-        <div className="absolute bottom-[-150px] right-[-150px] w-[400px] h-[400px] bg-blue-600/10 blur-[90px]" />
+      {/* FUNDO BLINDADO (NÃO INTERFERE NO SCROLL) */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[#07070c]" />
+        <div className="absolute top-[-150px] left-[-150px] w-[420px] h-[420px] bg-purple-600/15 blur-[90px]" />
+        <div className="absolute bottom-[-150px] right-[-150px] w-[420px] h-[420px] bg-blue-600/10 blur-[90px]" />
       </div>
 
       {/* NAVBAR */}
       <header className="fixed top-0 w-full bg-black/80 backdrop-blur-md border-b border-white/5 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-4">
 
-          <h1 className="font-bold tracking-[0.35em] text-purple-400">
+          <h1 className="font-bold tracking-[0.35em] text-purple-400 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">
             AZRIX
           </h1>
 
@@ -47,21 +48,17 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section
-        id="home"
-        className="relative min-h-screen flex items-center justify-center text-center px-4"
-      >
+      <section id="home" className="relative z-10 min-h-screen flex items-center justify-center text-center px-4">
 
-        <div className="relative z-10 max-w-3xl">
+        <div className="max-w-3xl">
 
-          <h1 className="text-6xl md:text-8xl font-black tracking-[0.25em] text-purple-400">
+          <h1 className="text-6xl md:text-8xl font-black tracking-[0.25em] text-purple-400 drop-shadow-[0_0_30px_rgba(168,85,247,0.5)]">
             AZRIX
           </h1>
 
           <p className="mt-6 text-gray-200 text-sm md:text-lg leading-relaxed">
-            A Azrix é uma equipe especializada em <span className="text-white font-semibold">moderação</span>,
-            <span className="text-white font-semibold"> administração</span> e gestão de comunidades Discord,
-            atuando em servidores de grande porte e ambientes de alta atividade.
+            A Azrix é uma equipe de <span className="text-white font-semibold">moderação e gestão de comunidades Discord</span>,
+            focada em organização, suporte e administração de servidores de grande porte dentro da cena gamer.
           </p>
 
           <div className="mt-10 flex flex-col md:flex-row gap-3 justify-center">
@@ -77,70 +74,52 @@ export default function Home() {
 
       </section>
 
-      {/* CASES */}
-      <section id="cases" className="max-w-5xl mx-auto px-4 py-24 space-y-12">
+      {/* EXPERIÊNCIA */}
+      <section id="cases" className="relative z-10 max-w-5xl mx-auto px-4 py-24 space-y-10">
 
         <h2 className="text-3xl font-bold text-center text-purple-400">
           Experiência em Moderação
         </h2>
 
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.15 } }
-          }}
-          className="space-y-10"
-        >
-
-          {[
-            {
-              title: "Origem",
-              text:
-                "A Azrix nasce da vivência de moderadores e administradores que atuaram em comunidades Discord de grande porte, lidando diretamente com organização, suporte e estruturação de servidores ativos com alto volume de usuários."
-            },
-            {
-              title: "Equipe de Moderação",
-              text:
-                "A equipe é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas, todos com experiência prática em moderação, administração e suporte em comunidades digitais de grande escala."
-            },
-            {
-              title: "Atuação em Comunidades",
-              text:
-                "Os membros já atuaram em comunidades como o servidor da LOUD (comunidade), além de projetos como Donas do Jogo, Desafio PlayHard e Game Changers, sempre focando em suporte e organização estrutural."
-            },
-            {
-              title: "Foco de Trabalho",
-              text:
-                "A atuação é voltada para moderação, gestão de comunidades Discord, suporte ao usuário e manutenção de ambientes organizados, saudáveis e estáveis."
-            }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02, y: -3 }}
-              transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="bg-[#141420] border border-white/5 rounded-xl p-6"
-            >
-              <h3 className="font-bold text-white mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-200 leading-relaxed">
-                {item.text}
-              </p>
-            </motion.div>
-          ))}
-
-        </motion.div>
+        {[
+          {
+            title: "Origem",
+            text:
+              "A equipe é formada por moderadores com experiência em comunidades Discord de grande porte, atuando diretamente na organização, suporte e gestão de servidores com alto volume de usuários."
+          },
+          {
+            title: "Equipe",
+            text:
+              "Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas — todos com experiência prática em moderação, administração e suporte dentro de comunidades digitais ativas."
+          },
+          {
+            title: "Experiência em Comunidades",
+            text:
+              "Atuação em ambientes como o servidor da LOUD (comunidade), além de participação em projetos como Donas do Jogo, Desafio PlayHard e Game Changers."
+          },
+          {
+            title: "Foco de Atuação",
+            text:
+              "Gestão de comunidades Discord, moderação ativa, suporte ao usuário, organização de servidores e manutenção de ambientes saudáveis e estruturados."
+          }
+        ].map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            whileHover={{ scale: 1.02 }}
+            className="bg-[#141420] border border-white/5 rounded-xl p-6"
+          >
+            <h3 className="font-bold text-white mb-2">{item.title}</h3>
+            <p className="text-gray-200 leading-relaxed">{item.text}</p>
+          </motion.div>
+        ))}
 
       </section>
 
       {/* ATUAÇÃO */}
-      <section id="servicos" className="bg-black/40 py-24 text-center">
+      <section id="servicos" className="relative z-10 bg-black/40 py-24 text-center">
 
         <h2 className="text-3xl font-bold text-purple-400 mb-10">
           Atuação
@@ -165,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* EQUIPE */}
-      <section id="equipe" className="py-24 text-center">
+      <section id="equipe" className="relative z-10 py-24 text-center">
 
         <h2 className="text-3xl font-bold text-purple-400 mb-10">
           Equipe de Moderação
@@ -190,14 +169,14 @@ export default function Home() {
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="text-center py-24">
+      <section id="contato" className="relative z-10 text-center py-24">
 
         <h2 className="text-3xl font-bold text-purple-400 mb-6">
           Contato
         </h2>
 
         <p className="text-gray-300 mb-6">
-          Entre em contato para suporte ou gestão de comunidades Discord.
+          Suporte e gestão de comunidades Discord.
         </p>
 
         <a
@@ -210,7 +189,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="text-center text-gray-500 py-8 border-t border-white/5">
+      <footer className="relative z-10 text-center text-gray-500 py-8 border-t border-white/5">
         © {new Date().getFullYear()} Azrix — Moderação & Community Management
       </footer>
 
