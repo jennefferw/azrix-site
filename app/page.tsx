@@ -26,105 +26,96 @@ export default function Home() {
 
       {/* HERO */}
       <section
-  id="home"
-  className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden"
->
-
-  {/* EFEITO DE FUNDO */}
-  <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black" />
-
-  {/* CONTEÚDO */}
-  <div className="relative z-10">
-
-    <h1 className="text-7xl md:text-8xl font-extrabold tracking-[0.4em] text-purple-400 drop-shadow-[0_0_25px_rgba(168,85,247,0.5)]">
-      AZRIX
-    </h1>
-
-    <p className="text-gray-300 max-w-2xl mt-6 text-lg leading-relaxed">
-      Uma organização formada por moderadores e gestores de grandes comunidades de games e esports no Brasil.
-    </p>
-
-    <div className="flex flex-col md:flex-row gap-4 mt-10 justify-center">
-
-      <a
-        href="#sobre"
-        className="px-7 py-3 bg-purple-600 hover:bg-purple-700 rounded font-semibold transition shadow-lg shadow-purple-500/20"
+        id="home"
+        className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden"
       >
-        Conhecer organização
-      </a>
 
-      <a
-        href="#equipe"
-        className="px-7 py-3 border border-purple-500 hover:bg-purple-500/20 rounded font-semibold transition"
-      >
-        Ver equipe
-      </a>
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black" />
 
-    </div>
+        <div className="relative z-10">
 
-    {/* MINI INDICADOR */}
-    <p className="text-gray-500 mt-10 text-sm tracking-widest">
-      SCROLL PARA EXPLORAR
-    </p>
+          <h1 className="text-7xl md:text-8xl font-extrabold tracking-[0.4em] text-purple-400">
+            AZRIX
+          </h1>
 
-  </div>
+          <p className="text-gray-300 max-w-2xl mt-6 text-lg">
+            Uma organização formada por moderadores e gestores de grandes comunidades de games e esports no Brasil.
+          </p>
 
-</section>
-      {/* SOBRE */}
-     <section id="sobre" className="max-w-6xl mx-auto px-6 py-28">
+        </div>
+      </section>
 
-  <h2 className="text-4xl font-bold text-center text-purple-400 mb-14">
-    Sobre a Azrix
-  </h2>
+      {/* SOBRE (ANIMADO) */}
+      <section id="sobre" className="max-w-6xl mx-auto px-6 py-28">
 
-  <div className="grid md:grid-cols-2 gap-8">
+        <h2 className="text-4xl font-bold text-center text-purple-400 mb-14">
+          Sobre a Azrix
+        </h2>
 
-    {/* CARD 1 */}
-    <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:scale-105 transition duration-300">
-      <h3 className="text-xl font-bold mb-3 text-white">Origem</h3>
-      <p className="text-gray-300 leading-relaxed">
-        A Azrix nasceu da experiência real dentro de uma das maiores comunidades de games e entretenimento do Brasil.
-      </p>
-    </div>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.15
+              }
+            }
+          }}
+          className="grid md:grid-cols-2 gap-8"
+        >
 
-    {/* CARD 2 */}
-    <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:scale-105 transition duration-300">
-      <h3 className="text-xl font-bold mb-3 text-white">Equipe</h3>
-      <p className="text-gray-300 leading-relaxed">
-        Nossa equipe é composta por 6 profissionais com vasta experiência em gestão de comunidades, suporte e moderação em larga escala.
-      </p>
-    </div>
+          {[
+            {
+              title: "Origem",
+              text: "A Azrix nasceu da experiência real dentro de comunidades de games e entretenimento do Brasil."
+            },
+            {
+              title: "Equipe",
+              text: "Nossa equipe é composta por 6 profissionais com vasta experiência em gestão de comunidades, suporte e moderação."
+            },
+            {
+              title: "Fundadora",
+              text: "Atua há mais de 6 anos na comunidade de Esports, com experiência em moderação e administração."
+            },
+            {
+              title: "Projetos",
+              text: "Administração e moderação no servidor da LOUD (comunidade), Donas do Jogo, Desafio PlayHard e Game Changers."
+            }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-[#141420] border border-white/10 rounded-2xl p-6"
+            >
+              <h3 className="text-xl font-bold mb-3 text-white">
+                {item.title}
+              </h3>
+              <p className="text-gray-300">
+                {item.text}
+              </p>
+            </motion.div>
+          ))}
 
-    {/* CARD 3 */}
-    <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:scale-105 transition duration-300">
-      <h3 className="text-xl font-bold mb-3 text-white">Fundadora</h3>
-      <p className="text-gray-300 leading-relaxed">
-        Atua há mais de 6 anos na comunidade de Esports, com experiência em moderação e administração de servidores oficiais.
-      </p>
-    </div>
+        </motion.div>
 
-    {/* CARD 4 */}
-    <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:scale-105 transition duration-300">
-      <h3 className="text-xl font-bold mb-3 text-white">Projetos</h3>
-      <p className="text-gray-300 leading-relaxed">
-        Donas do Jogo, Desafio PlayHard, Game Changers e operações de eventos ao vivo em comunidades competitivas.
-      </p>
-    </div>
+        <div className="text-center mt-16">
+          <p className="text-purple-300 text-lg font-medium">
+            Comunidades fortes são construídas com estrutura, presença e experiência real.
+          </p>
+        </div>
 
-  </div>
-
-  {/* FRASE FINAL */}
-  <div className="text-center mt-16">
-    <p className="text-purple-300 text-lg font-medium">
-      Comunidades fortes são construídas com estrutura, presença e experiência real.
-    </p>
-  </div>
-
-</section>
+      </section>
 
       {/* EQUIPE */}
       <section id="equipe" className="bg-black/40 py-24">
-
         <div className="max-w-6xl mx-auto px-6">
 
           <h2 className="text-3xl font-bold text-purple-400 mb-12 text-center">
@@ -135,47 +126,39 @@ export default function Home() {
 
             <div className="bg-[#141420] p-6 rounded-xl border border-white/10">
               <h3 className="font-bold">Admin</h3>
-              <p className="text-gray-400 mt-2">Gestão de comunidade</p>
             </div>
 
             <div className="bg-[#141420] p-6 rounded-xl border border-white/10">
               <h3 className="font-bold">Moderador</h3>
-              <p className="text-gray-400 mt-2">Suporte e moderação</p>
             </div>
 
             <div className="bg-[#141420] p-6 rounded-xl border border-white/10">
               <h3 className="font-bold">Gestor</h3>
-              <p className="text-gray-400 mt-2">Eventos e organização</p>
             </div>
 
           </div>
 
         </div>
-
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="max-w-5xl mx-auto px-6 py-24 text-center">
+      <section id="contato" className="text-center py-24">
 
-  <h2 className="text-3xl font-bold text-purple-400 mb-6">
-    Contato
-  </h2>
+        <h2 className="text-3xl font-bold text-purple-400 mb-6">
+          Contato
+        </h2>
 
-  <p className="text-gray-300 mb-8">
-    Fale com a equipe Azrix pelo e-mail abaixo.
-  </p>
+        <a
+          href="mailto:contatoazrix@gmail.com"
+          className="px-6 py-3 bg-purple-600 rounded"
+        >
+          contatoazrix@gmail.com
+        </a>
 
-  <a
-    href="mailto:contato@azrix.com"
-    className="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded inline-block"
-  >
-    contatoazrix@gmail.com
-  </a>
-
-</section>
+      </section>
 
       {/* FOOTER */}
-      <footer className="text-center text-gray-500 py-10 border-t border-white/10">
+      <footer className="text-center text-gray-500 py-10">
         © {new Date().getFullYear()} Azrix
       </footer>
 
