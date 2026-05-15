@@ -34,18 +34,29 @@ export default function Home() {
 
         <div className="relative z-10">
 
-          <h1 className="text-7xl md:text-8xl font-extrabold tracking-[0.4em] text-purple-400">
+          {/* AZRIX ANIMADO */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="text-7xl md:text-8xl font-extrabold tracking-[0.4em] text-purple-400 drop-shadow-[0_0_25px_rgba(168,85,247,0.5)]"
+          >
             AZRIX
-          </h1>
+          </motion.h1>
 
-          <p className="text-gray-300 max-w-2xl mt-6 text-lg">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="text-gray-300 max-w-2xl mt-6 text-lg"
+          >
             Uma organização formada por moderadores e gestores de grandes comunidades de games e esports no Brasil.
-          </p>
+          </motion.p>
 
         </div>
       </section>
 
-      {/* SOBRE (ANIMADO) */}
+      {/* SOBRE */}
       <section id="sobre" className="max-w-6xl mx-auto px-6 py-28">
 
         <h2 className="text-4xl font-bold text-center text-purple-400 mb-14">
@@ -70,15 +81,15 @@ export default function Home() {
           {[
             {
               title: "Origem",
-              text: "A Azrix nasceu da experiência real dentro de comunidades de games e entretenimento do Brasil."
+              text: "A Azrix nasceu da experiência real dentro de comunidades de games e entretenimento no Brasil."
             },
             {
               title: "Equipe",
-              text: "Nossa equipe é composta por 6 profissionais com vasta experiência em gestão de comunidades, suporte e moderação."
+              text: "Nossa equipe é composta por 6 profissionais com experiência em gestão de comunidades, suporte e moderação."
             },
             {
               title: "Fundadora",
-              text: "Atua há mais de 6 anos na comunidade de Esports, com experiência em moderação e administração."
+              text: "Atua há mais de 6 anos na comunidade de Esports com moderação e administração de servidores."
             },
             {
               title: "Projetos",
@@ -116,27 +127,34 @@ export default function Home() {
 
       {/* EQUIPE */}
       <section id="equipe" className="bg-black/40 py-24">
+
         <div className="max-w-6xl mx-auto px-6">
 
           <h2 className="text-3xl font-bold text-purple-400 mb-12 text-center">
             Equipe
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="grid md:grid-cols-3 gap-6"
+          >
 
-            <div className="bg-[#141420] p-6 rounded-xl border border-white/10">
-              <h3 className="font-bold">Admin</h3>
-            </div>
+            {["Admin", "Moderador", "Gestor"].map((role, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                className="bg-[#141420] p-6 rounded-xl border border-white/10"
+              >
+                <h3 className="font-bold">{role}</h3>
+                <p className="text-gray-400 mt-2">
+                  Função dentro da comunidade
+                </p>
+              </motion.div>
+            ))}
 
-            <div className="bg-[#141420] p-6 rounded-xl border border-white/10">
-              <h3 className="font-bold">Moderador</h3>
-            </div>
-
-            <div className="bg-[#141420] p-6 rounded-xl border border-white/10">
-              <h3 className="font-bold">Gestor</h3>
-            </div>
-
-          </div>
+          </motion.div>
 
         </div>
       </section>
