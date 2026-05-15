@@ -5,21 +5,40 @@ import { motion } from "framer-motion"
 export default function Home() {
 
   const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     show: { opacity: 1, y: 0 }
   }
 
   return (
-    <main className="bg-[#05060a] text-white min-h-screen overflow-x-hidden">
+    <main className="bg-[#05060a] text-white min-h-screen overflow-x-hidden scroll-smooth">
 
-      {/* BACKGROUND */}
+      {/* FUNDO */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#05060a] to-black" />
         <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-purple-600/10 blur-[120px]" />
       </div>
 
+      {/* NAV */}
+      <header className="fixed top-0 w-full bg-black/50 backdrop-blur-md border-b border-white/5 z-50">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+
+          <h1 className="font-bold tracking-[0.35em] text-purple-400">
+            AZRIX
+          </h1>
+
+          <nav className="hidden md:flex gap-8 text-xs text-gray-300 tracking-widest">
+            <a href="#inicio" className="hover:text-white transition">INÍCIO</a>
+            <a href="#sobre" className="hover:text-white transition">SOBRE</a>
+            <a href="#experiencia" className="hover:text-white transition">EXPERIÊNCIA</a>
+            <a href="#equipe" className="hover:text-white transition">EQUIPE</a>
+            <a href="#contato" className="hover:text-white transition">CONTATO</a>
+          </nav>
+
+        </div>
+      </header>
+
       {/* HERO */}
-      <section className="relative z-10 min-h-screen flex items-center justify-center text-center px-6">
+      <section id="inicio" className="relative z-10 min-h-screen flex items-center justify-center text-center px-6">
 
         <motion.div
           initial="hidden"
@@ -30,7 +49,7 @@ export default function Home() {
 
           <motion.h1
             variants={fadeUp}
-            className="text-5xl md:text-7xl font-black"
+            className="text-5xl md:text-7xl font-black tracking-tight"
           >
             Azrix <span className="text-purple-400">Gestão de Comunidades</span>
           </motion.h1>
@@ -48,7 +67,7 @@ export default function Home() {
 
       </section>
 
-      {/* SOBRE */}
+      {/* SOBRE (NARRATIVA FLUIDA) */}
       <section id="sobre" className="relative z-10 max-w-6xl mx-auto px-6 py-24">
 
         <h2 className="text-3xl font-bold text-center text-purple-400 mb-12">
@@ -59,31 +78,24 @@ export default function Home() {
 
           {[
             {
-              title: "Origem",
-              text: "A Azrix nasce da experiência prática em comunidades Discord ativas, com foco em organização e suporte em ambientes de grande porte."
+              title: "Origem e Estrutura",
+              text: "A Azrix nasce da experiência prática em comunidades Discord ativas, com foco em organização, suporte e estruturação de ambientes de grande porte. A equipe é formada a partir de moderadores com atuação em comunidades de alta demanda, especialmente na comunidade da LOUD."
             },
             {
-              title: "Estrutura",
-              text: "A equipe é formada por moderadores com experiência em ambientes de alta demanda, especialmente na comunidade da LOUD."
-            },
-            {
-              title: "Atuação Individual",
-              text: "Experiência em projetos como Donas do Jogo, Desafio PlayHard e Game Changers, atuando em moderação e suporte operacional."
-            },
-            {
-              title: "Foco",
-              text: "Gestão de comunidades, moderação ativa e manutenção de ambientes organizados e consistentes."
+              title: "Experiência e Foco",
+              text: "A fundadora possui experiência em projetos como Donas do Jogo, Desafio PlayHard e Game Changers, atuando em moderação e suporte operacional. A Azrix foca na gestão de comunidades, moderação ativa e manutenção de ambientes organizados e consistentes."
             }
           ].map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-[#141420] border border-white/5 rounded-xl p-6"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.4 }}
+              className="bg-[#141420] border border-white/5 rounded-xl p-6 hover:scale-[1.02] transition-transform"
             >
-              <h3 className="font-bold mb-2">{item.title}</h3>
-              <p className="text-gray-300">{item.text}</p>
+              <h3 className="font-bold mb-3">{item.title}</h3>
+              <p className="text-gray-300 leading-relaxed">{item.text}</p>
             </motion.div>
           ))}
 
@@ -91,7 +103,7 @@ export default function Home() {
 
       </section>
 
-      {/* EXPERIÊNCIA */}
+      {/* EXPERIÊNCIA (VERSÃO FORTE E COMPLETA) */}
       <section id="experiencia" className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
 
         <h2 className="text-3xl font-bold text-center text-purple-400 mb-12">
@@ -111,7 +123,8 @@ export default function Home() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#141420] border border-white/5 rounded-xl p-6"
+              transition={{ duration: 0.4 }}
+              className="bg-[#141420] border border-white/5 rounded-xl p-6 hover:scale-[1.02] transition-transform"
             >
               {item}
             </motion.div>
@@ -129,22 +142,26 @@ export default function Home() {
         </h2>
 
         <p className="text-gray-400 max-w-2xl mx-auto mb-10 px-6">
-          Equipe formada por moderadores com experiência em comunidades de grande porte,
-          especialmente na LOUD, atuando em organização e suporte.
+          A equipe Azrix é formada por moderadores com experiência em comunidades de grande porte,
+          especialmente na LOUD, atuando em organização, suporte e gestão de interações.
         </p>
 
         <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto px-6">
 
           {["Jenne", "LC", "Camisa 7", "Bruxo", "Baiano", "Juleas"].map((name) => (
-            <div
+            <motion.div
               key={name}
-              className="bg-[#141420] p-5 rounded-xl border border-white/5"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="bg-[#141420] p-5 rounded-xl border border-white/5 hover:scale-105 transition-transform"
             >
               <h3 className="font-bold">{name}</h3>
               <p className="text-gray-400 text-sm mt-2">
                 Moderação / Comunidades
               </p>
-            </div>
+            </motion.div>
           ))}
 
         </div>
