@@ -19,7 +19,7 @@ export default function Home() {
       translate="no"
     >
 
-      {/* FUNDO DINÂMICO */}
+      {/* 🌌 FUNDO DINÂMICO */}
       <div className="absolute inset-0 overflow-hidden">
 
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 via-black to-black" />
@@ -117,38 +117,48 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-8">
 
-          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6">
-            <h3 className="text-xl font-bold mb-3 text-white">Origem</h3>
-            <p className="text-gray-300">
-              A Azrix nasceu da experiência real dentro de uma grande comunidade de games e esports no Brasil.  
-              O projeto surgiu da vivência de moderadores e gestores que já atuaram em servidores de grande porte, lidando com organização, suporte e eventos dentro da cena gamer.
-            </p>
-          </div>
-
-          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6">
-            <h3 className="text-xl font-bold mb-3 text-white">Equipe</h3>
-            <p className="text-gray-300">
-              A equipe é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas.  
-              Todos possuem experiência em moderação, administração e gestão de comunidades de grande porte dentro do cenário de games e esports.
-            </p>
-          </div>
-
-          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6">
-            <h3 className="text-xl font-bold mb-3 text-white">Fundadora</h3>
-            <p className="text-gray-300">
-              A fundadora da Azrix atua há mais de 6 anos na comunidade de esports, com experiência em moderação, administração e gestão de servidores de grande porte.  
-              Sua trajetória inclui participação ativa em projetos competitivos e organização de comunidades no cenário gamer.
-            </p>
-          </div>
-
-          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6">
-            <h3 className="text-xl font-bold mb-3 text-white">Projetos</h3>
-            <p className="text-gray-300">
-              A equipe da Azrix reúne experiência adquirida em diversos projetos dentro da cena de games e esports, incluindo Donas do Jogo, Desafio PlayHard e Game Changers.
-
-Também há atuação em administração e moderação no servidor da LOUD (comunidade), com foco em organização, suporte e manutenção de ambientes de grande porte.
-            </p>
-          </div>
+          {[
+            {
+              title: "Origem",
+              text:
+                "A equipe da Azrix reúne experiência adquirida em grandes comunidades de games e esports no Brasil, com atuação em organização, suporte e eventos."
+            },
+            {
+              title: "Equipe",
+              text:
+                "Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas. Todos com experiência em moderação, administração e gestão de comunidades."
+            },
+            {
+              title: "Fundadora",
+              text:
+                "Atua há mais de 6 anos na comunidade de esports, com experiência em moderação e administração de servidores de grande porte."
+            },
+            {
+              title: "Projetos",
+              text:
+                "Donas do Jogo, Desafio PlayHard, Game Changers e atuação em administração e moderação no servidor da LOUD (comunidade)."
+            }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+              whileHover={{
+                scale: 1.06,
+                y: -6
+              }}
+              className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]"
+            >
+              <h3 className="text-xl font-bold mb-3 text-white">
+                {item.title}
+              </h3>
+              <p className="text-gray-300">
+                {item.text}
+              </p>
+            </motion.div>
+          ))}
 
         </div>
 
@@ -166,15 +176,16 @@ Também há atuação em administração e moderação no servidor da LOUD (comu
           <div className="grid md:grid-cols-3 gap-6">
 
             {["Jenne", "LC", "Camisa 7", "Bruxo", "Baiano", "Juleas"].map((name, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-[#141420] p-6 rounded-xl border border-white/10 hover:scale-105 transition"
+                whileHover={{ scale: 1.05 }}
+                className="bg-[#141420] p-6 rounded-xl border border-white/10"
               >
                 <h3 className="font-bold">{name}</h3>
                 <p className="text-gray-400 mt-2">
                   Membro da equipe Azrix
                 </p>
-              </div>
+              </motion.div>
             ))}
 
           </div>
