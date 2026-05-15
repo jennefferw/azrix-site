@@ -119,19 +119,29 @@ export default function Home() {
           {[
             {
               title: "Origem",
-              text: "A Azrix nasceu da experiência real dentro de comunidades de games e entretenimento."
+              text: "A Azrix nasceu da experiência real dentro de grandes comunidades de games e esports no Brasil.
+O projeto foi criado a partir da vivência de moderadores e gestores que atuaram em servidores de grande porte, lidando diretamente com organização, suporte e eventos na cena gamer."
             },
             {
               title: "Equipe",
-              text: "Equipe com experiência em gestão, suporte e moderação."
+              text: "A equipe da Azrix é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas.
+Cada integrante possui experiência em moderação, administração e gestão de comunidades de grande porte, atuando diretamente em ambientes de alto movimento dentro da cena de games e esports.
+
+Juntos, contribuem para a organização, suporte e desenvolvimento de projetos comunitários, com foco em manter estrutura, eficiência e boa experiência dentro das comunidades onde atuam."
             },
             {
               title: "Fundadora",
-              text: "Mais de 6 anos atuando em esports e comunidades."
+              text: "A fundadora da Azrix possui mais de 6 anos de experiência na comunidade de esports, atuando diretamente com moderação, administração e gestão de servidores de grande porte.
+
+Sua trajetória é marcada pela participação ativa em ambientes competitivos, com foco em organização, suporte e desenvolvimento de comunidades dentro da cena gamer."
             },
             {
               title: "Projetos",
-              text: "LOUD, PlayHard, Game Changers e eventos competitivos."
+              text: "A equipe da Azrix participou e atuou em diferentes projetos e iniciativas dentro da cena de games e esports, com foco em organização, suporte e experiência comunitária.
+
+Entre os principais projetos estão Donas do Jogo, Desafio PlayHard e Game Changers, além de atuações em eventos e comunidades competitivas.
+
+Também há experiência em administração e moderação no servidor da LOUD (comunidade), contribuindo para a gestão e manutenção de ambientes de grande porte."
             }
           ].map((item, i) => (
             <motion.div
