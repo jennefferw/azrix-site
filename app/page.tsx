@@ -6,7 +6,6 @@ import { useState } from "react"
 export default function Home() {
   const [mouse, setMouse] = useState({ x: 50, y: 50 })
 
-  // ✅ corrigido (sem React.MouseEvent)
   function handleMouseMove(e: any) {
     const x = (e.clientX / window.innerWidth) * 100
     const y = (e.clientY / window.innerHeight) * 100
@@ -17,14 +16,14 @@ export default function Home() {
     <main
       onMouseMove={handleMouseMove}
       className="bg-[#0b0b10] text-white min-h-screen relative overflow-hidden"
+      translate="no"
     >
 
-      {/* 🌌 FUNDO DINÂMICO */}
+      {/* FUNDO DINÂMICO */}
       <div className="absolute inset-0 overflow-hidden">
 
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 via-black to-black" />
 
-        {/* glow que segue o mouse */}
         <div
           className="absolute w-[600px] h-[600px] rounded-full blur-3xl opacity-30 pointer-events-none transition-all duration-300"
           style={{
@@ -36,18 +35,20 @@ export default function Home() {
           }}
         />
 
-        {/* glows fixos */}
         <div className="absolute top-[-120px] left-[-120px] w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl animate-pulse" />
 
       </div>
 
       {/* NAVBAR */}
-      <header className="fixed top-0 w-full bg-black/40 backdrop-blur-md border-b border-white/10 z-50">
+      <header
+        className="fixed top-0 w-full bg-black/40 backdrop-blur-md border-b border-white/10 z-50"
+        translate="no"
+      >
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
           <h1 className="font-bold tracking-widest text-purple-400">
-            AZRIX teste
+            AZRIX
           </h1>
 
           <nav className="flex gap-6 text-sm text-gray-300">
@@ -81,7 +82,7 @@ export default function Home() {
           transition={{ delay: 0.5 }}
           className="text-gray-300 max-w-2xl mt-6 text-lg leading-relaxed"
         >
-          Uma organização formada por moderadores e gestores de grandes comunidades de games e esports no Brasil.
+          Organização formada por moderadores e gestores experientes em grandes comunidades de games e esports no Brasil.
         </motion.p>
 
         <motion.div
@@ -116,39 +117,35 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-8">
 
-          {/* ORIGEM */}
-          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:scale-105 transition">
+          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6">
             <h3 className="text-xl font-bold mb-3 text-white">Origem</h3>
             <p className="text-gray-300">
-              A Azrix nasceu da experiência real dentro de grandes comunidades de games e esports no Brasil.
-              O projeto foi criado a partir da vivência de moderadores e gestores que atuaram em servidores de grande porte, lidando diretamente com organização, suporte e eventos na cena gamer.
+              A Azrix nasceu da experiência real dentro de uma grande comunidade de games e esports no Brasil.  
+              O projeto surgiu da vivência de moderadores e gestores que já atuaram em servidores de grande porte, lidando com organização, suporte e eventos dentro da cena gamer.
             </p>
           </div>
 
-          {/* EQUIPE */}
-          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:scale-105 transition">
+          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6">
             <h3 className="text-xl font-bold mb-3 text-white">Equipe</h3>
             <p className="text-gray-300">
-              A equipe da Azrix é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas.
-              Cada integrante possui experiência em moderação, administração e gestão de comunidades de grande porte.
+              A equipe é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas.  
+              Todos possuem experiência em moderação, administração e gestão de comunidades de grande porte dentro do cenário de games e esports.
             </p>
           </div>
 
-          {/* FUNDAÇÃO */}
-          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:scale-105 transition">
-            <h3 className="text-xl font-bold mb-3 text-white">Fundação</h3>
+          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6">
+            <h3 className="text-xl font-bold mb-3 text-white">Fundadora</h3>
             <p className="text-gray-300">
-              A fundadora da Azrix possui mais de 6 anos de experiência na comunidade de esports,
-              atuando com moderação, administração e gestão de servidores de grande porte.
+              A fundadora da Azrix atua há mais de 6 anos na comunidade de esports, com experiência em moderação, administração e gestão de servidores de grande porte.  
+              Sua trajetória inclui participação ativa em projetos competitivos e organização de comunidades no cenário gamer.
             </p>
           </div>
 
-          {/* PROJETOS */}
-          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:scale-105 transition">
+          <div className="bg-[#141420] border border-white/10 rounded-2xl p-6">
             <h3 className="text-xl font-bold mb-3 text-white">Projetos</h3>
             <p className="text-gray-300">
-              Donas do Jogo, Desafio PlayHard, Game Changers e atuação em eventos e comunidades competitivas.
-              Também há experiência em administração e moderação no servidor da LOUD (comunidade).
+              A Azrix participou de diversos projetos dentro da cena de games e esports, incluindo Donas do Jogo, Desafio PlayHard e Game Changers.  
+              Também possui experiência em administração e moderação no servidor da LOUD (comunidade), atuando na organização e suporte de ambientes de grande porte.
             </p>
           </div>
 
@@ -167,14 +164,14 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
 
-            {["Admin", "Moderador", "Gestor"].map((role, i) => (
+            {["Jenne", "LC", "Camisa 7", "Bruxo", "Baiano", "Juleas"].map((name, i) => (
               <div
                 key={i}
                 className="bg-[#141420] p-6 rounded-xl border border-white/10 hover:scale-105 transition"
               >
-                <h3 className="font-bold">{role}</h3>
+                <h3 className="font-bold">{name}</h3>
                 <p className="text-gray-400 mt-2">
-                  Função dentro da comunidade
+                  Membro da equipe Azrix
                 </p>
               </div>
             ))}
