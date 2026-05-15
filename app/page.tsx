@@ -144,8 +144,9 @@ export default function Home() {
           <div className="bg-[#141420] border border-white/10 rounded-2xl p-6">
             <h3 className="text-xl font-bold mb-3 text-white">Projetos</h3>
             <p className="text-gray-300">
-              A Azrix participou de diversos projetos dentro da cena de games e esports, incluindo Donas do Jogo, Desafio PlayHard e Game Changers.  
-              Também possui experiência em administração e moderação no servidor da LOUD (comunidade), atuando na organização e suporte de ambientes de grande porte.
+              A equipe da Azrix reúne experiência adquirida em diversos projetos dentro da cena de games e esports, incluindo Donas do Jogo, Desafio PlayHard e Game Changers.
+
+Também há atuação em administração e moderação no servidor da LOUD (comunidade), com foco em organização, suporte e manutenção de ambientes de grande porte.
             </p>
           </div>
 
