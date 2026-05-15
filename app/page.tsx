@@ -7,22 +7,30 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <main className="bg-[#0b0b10] text-white min-h-screen">
+    <main className="bg-[#07070c] text-white min-h-screen overflow-hidden">
+
+      {/* FUNDO MAIS PROFUNDO */}
+      <div className="fixed inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black" />
+        <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-purple-600/20 blur-[120px]" />
+        <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-blue-600/10 blur-[140px]" />
+      </div>
 
       {/* NAVBAR */}
-      <header className="fixed top-0 w-full bg-black/70 backdrop-blur-md border-b border-white/5 z-50">
+      <header className="fixed top-0 w-full bg-black/60 backdrop-blur-md border-b border-white/5 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-4">
 
-          <h1 className="font-bold tracking-widest text-purple-400">
+          <h1 className="font-bold tracking-[0.4em] text-purple-400">
             AZRIX
           </h1>
 
-          <nav className="hidden md:flex gap-6 text-sm text-gray-400">
-            <a href="#home">Início</a>
-            <a href="#cases">Experiência</a>
-            <a href="#servicos">Atuação</a>
-            <a href="#equipe">Equipe</a>
-            <a href="#contato">Contato</a>
+          <nav className="hidden md:flex gap-8 text-xs tracking-widest text-gray-400">
+            <a href="#home">INÍCIO</a>
+            <a href="#value">VALOR</a>
+            <a href="#cases">CASES</a>
+            <a href="#servicos">SERVIÇOS</a>
+            <a href="#equipe">EQUIPE</a>
+            <a href="#contato">CONTATO</a>
           </nav>
 
           <button
@@ -37,130 +45,128 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+      {/* HERO MAIS FORTE */}
+      <section id="home" className="relative min-h-screen flex items-center justify-center text-center px-4">
 
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-[0.35em] text-purple-400">
-          AZRIX
-        </h1>
+        <div className="relative z-10 max-w-3xl">
 
-        <p className="mt-6 text-gray-300 max-w-2xl text-sm md:text-lg leading-relaxed">
-          A Azrix é uma equipe especializada em moderação, administração e gestão de comunidades Discord, atuando em servidores de grande porte e ambientes de alta atividade.
-        </p>
+          <h1 className="text-6xl md:text-8xl font-black tracking-[0.25em] text-purple-400">
+            AZRIX
+          </h1>
 
-        <div className="mt-10 flex flex-col md:flex-row gap-3">
-          <a
-            href="#cases"
-            className="px-7 py-3 bg-purple-600 hover:bg-purple-500 rounded font-semibold"
-          >
-            Ver experiência
-          </a>
+          <p className="mt-6 text-gray-300 text-sm md:text-lg leading-relaxed">
+            Equipe especializada em <span className="text-white font-semibold">moderação</span>,
+            <span className="text-white font-semibold"> administração</span> e gestão de comunidades Discord.
+          </p>
 
-          <a
-            href="#contato"
-            className="px-7 py-3 border border-purple-500/40 hover:border-purple-400 rounded font-semibold"
-          >
-            Falar com a equipe
-          </a>
+          <div className="mt-10 flex flex-col md:flex-row gap-3 justify-center">
+            <a className="px-7 py-3 bg-purple-600 hover:bg-purple-500 rounded font-semibold">
+              Ver estrutura
+            </a>
+            <a className="px-7 py-3 border border-purple-500/40 hover:border-purple-400 rounded font-semibold">
+              Falar com equipe
+            </a>
+          </div>
+
         </div>
 
       </section>
 
-      {/* CASES / EXPERIÊNCIA */}
-      <section id="cases" className="max-w-5xl mx-auto px-4 py-28 space-y-16">
+      {/* VALUE SECTION (NOVO) */}
+      <section id="value" className="max-w-5xl mx-auto px-4 py-24">
 
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-purple-400">
-          Experiência em Moderação
+        <h2 className="text-3xl font-bold text-center text-purple-400 mb-12">
+          O que fazemos
         </h2>
 
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.15 } }
-          }}
-          className="space-y-10"
-        >
+        <div className="grid md:grid-cols-3 gap-6">
 
           {[
             {
-              title: "Origem",
-              text:
-                "A Azrix surge da experiência de moderadores e administradores que atuaram em comunidades Discord de grande porte, lidando com organização, suporte e estruturação de servidores."
+              title: "Moderação",
+              text: "Controle e organização de comunidades Discord de grande porte."
             },
             {
-              title: "Equipe de Moderação",
-              text:
-                "A equipe é formada por Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas, todos com experiência prática em moderação e administração de comunidades ativas."
+              title: "Administração",
+              text: "Estruturação de servidores, cargos e fluxos internos."
             },
             {
-              title: "Atuação em Comunidades",
-              text:
-                "Os membros já atuaram em comunidades como o servidor da LOUD (comunidade), além de projetos como Donas do Jogo, Desafio PlayHard e Game Changers."
-            },
-            {
-              title: "Foco de Trabalho",
-              text:
-                "A atuação é voltada para moderação, organização de servidores, suporte a usuários e manutenção de ambientes saudáveis e estruturados."
+              title: "Suporte",
+              text: "Atendimento e manutenção de comunidades ativas."
             }
           ].map((item, i) => (
-            <motion.div
+            <div
               key={i}
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                show: { opacity: 1, y: 0 }
-              }}
-              whileHover={{ scale: 1.02, y: -4 }}
-              transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="bg-[#141420] border border-white/5 rounded-xl p-6"
+              className="bg-[#12121a] border border-white/5 rounded-xl p-6 hover:scale-[1.02] transition"
             >
-              <h3 className="text-xl font-bold text-white mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-300 leading-relaxed">
-                {item.text}
-              </p>
-            </motion.div>
+              <h3 className="font-bold mb-2 text-white">{item.title}</h3>
+              <p className="text-gray-400 text-sm">{item.text}</p>
+            </div>
           ))}
 
-        </motion.div>
+        </div>
+
+      </section>
+
+      {/* CASES MAIS PREMIUM */}
+      <section id="cases" className="max-w-5xl mx-auto px-4 py-24 space-y-12">
+
+        <h2 className="text-3xl font-bold text-center text-purple-400">
+          Experiência
+        </h2>
+
+        {[
+          {
+            title: "Origem",
+            text: "A Azrix nasce da vivência de moderadores e administradores de comunidades Discord de grande porte."
+          },
+          {
+            title: "Equipe",
+            text: "Jenne, LC, Camisa 7, Bruxo, Baiano e Juleas — todos com experiência prática em moderação."
+          },
+          {
+            title: "Comunidades",
+            text: "Atuação em ambientes como LOUD (comunidade) e projetos da cena gamer."
+          },
+          {
+            title: "Projetos",
+            text: "Donas do Jogo, Desafio PlayHard e Game Changers."
+          }
+        ].map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.02 }}
+            className="bg-[#141420] border border-white/5 rounded-xl p-6"
+          >
+            <h3 className="font-bold text-white mb-2">{item.title}</h3>
+            <p className="text-gray-400">{item.text}</p>
+          </motion.div>
+        ))}
 
       </section>
 
       {/* SERVIÇOS */}
-      <section id="servicos" className="bg-black/30 py-28">
+      <section id="servicos" className="bg-black/40 py-24 text-center">
 
-        <div className="max-w-6xl mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold text-purple-400 mb-10">
+          Serviços
+        </h2>
 
-          <h2 className="text-3xl font-bold text-purple-400 mb-12">
-            Atuação
-          </h2>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 px-4">
 
-          <div className="grid md:grid-cols-3 gap-6 text-left">
+          <div className="bg-[#12121a] p-6 rounded-xl border border-white/5">
+            Moderação Discord
+          </div>
 
-            <div className="bg-[#141420] p-6 rounded-xl border border-white/5">
-              <h3 className="font-bold mb-2">Moderação de Discord</h3>
-              <p className="text-gray-400 text-sm">
-                Controle, organização e segurança de servidores.
-              </p>
-            </div>
+          <div className="bg-[#12121a] p-6 rounded-xl border border-white/5">
+            Gestão de Comunidades
+          </div>
 
-            <div className="bg-[#141420] p-6 rounded-xl border border-white/5">
-              <h3 className="font-bold mb-2">Administração de Comunidades</h3>
-              <p className="text-gray-400 text-sm">
-                Gestão de estrutura, cargos e fluxos internos.
-              </p>
-            </div>
-
-            <div className="bg-[#141420] p-6 rounded-xl border border-white/5">
-              <h3 className="font-bold mb-2">Suporte Operacional</h3>
-              <p className="text-gray-400 text-sm">
-                Atendimento e manutenção de comunidades ativas.
-              </p>
-            </div>
-
+          <div className="bg-[#12121a] p-6 rounded-xl border border-white/5">
+            Suporte Operacional
           </div>
 
         </div>
@@ -168,23 +174,17 @@ export default function Home() {
       </section>
 
       {/* EQUIPE */}
-      <section id="equipe" className="py-28 text-center">
+      <section id="equipe" className="py-24 text-center">
 
-        <h2 className="text-3xl font-bold text-purple-400 mb-12">
-          Equipe de Moderação
+        <h2 className="text-3xl font-bold text-purple-400 mb-10">
+          Equipe
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 max-w-5xl mx-auto px-4">
 
           {["Jenne", "LC", "Camisa 7", "Bruxo", "Baiano", "Juleas"].map((name, i) => (
-            <div
-              key={i}
-              className="bg-[#141420] border border-white/5 rounded-xl p-5"
-            >
-              <h3 className="font-bold">{name}</h3>
-              <p className="text-gray-500 text-sm mt-2">
-                Moderação / Community Staff
-              </p>
+            <div key={i} className="bg-[#12121a] p-5 rounded-xl border border-white/5">
+              {name}
             </div>
           ))}
 
@@ -193,29 +193,17 @@ export default function Home() {
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="text-center py-28">
+      <section id="contato" className="text-center py-24">
 
         <h2 className="text-3xl font-bold text-purple-400 mb-6">
           Contato
         </h2>
 
-        <p className="text-gray-400 mb-6">
-          Entre em contato para suporte ou gestão de comunidades Discord.
-        </p>
-
-        <a
-          href="mailto:contatoazrix@gmail.com"
-          className="px-6 py-3 bg-purple-600 hover:bg-purple-500 rounded"
-        >
+        <a className="px-6 py-3 bg-purple-600 rounded">
           contatoazrix@gmail.com
         </a>
 
       </section>
-
-      {/* FOOTER */}
-      <footer className="text-center text-gray-600 py-8 border-t border-white/5">
-        © {new Date().getFullYear()} Azrix — Moderação & Community Management
-      </footer>
 
     </main>
   )
