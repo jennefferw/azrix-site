@@ -275,6 +275,12 @@ export default function Home() {
 </motion.a>
       </section>
 
+      {/* FOOTER */}
+      <footer className="relative z-10 border-t border-white/5 py-8 text-center text-gray-500 text-sm">
+        © 2026 Azrix — Gestão de Comunidades
+      </footer>
+
+    </main>
     </main>
   )
 }
