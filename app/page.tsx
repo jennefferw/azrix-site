@@ -251,28 +251,28 @@ export default function Home() {
       <section id="contato" className="relative z-10 text-center py-24">
 
         <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-3xl font-bold text-purple-400 mb-6"
-        >
-          Contato
-        </motion.h2>
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  className="text-3xl font-bold text-purple-400 mb-6"
+>
+  Contato
+</motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-gray-300 mb-6"
-        >
-          Entre em contato para suporte ou gestão de comunidades.
-        </motion.p>
+<motion.p
+  initial={{ opacity: 0, y: 10 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  className="text-gray-300 mb-6"
+>
+  Entre em contato para suporte ou gestão de comunidades.
+</motion.p>
 
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          className="inline-block px-6 py-3 bg-purple-600 rounded hover:bg-purple-500 transition"
-        >
-          Entrar em contato
-        </motion.a>
-
+<motion.a
+  href="mailto:contatoazrix@gmail.com"
+  whileHover={{ scale: 1.05 }}
+  className="inline-block px-6 py-3 bg-purple-600 rounded hover:bg-purple-500 transition"
+>
+  Entrar em contato
+</motion.a>
       </section>
 
     </main>
