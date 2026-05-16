@@ -17,7 +17,7 @@ export default function Home() {
     {
       name: "Jenne",
       role: "Administração e Estrutura",
-      desc: "Possui experiência em moderação e administração de comunidades Discord, com atuação em ambientes de grande atividade. Trabalha com organização, suporte e manutenção de comunidades, garantindo fluidez e bom funcionamento geral. Atuou como moderadora e Administradora no servidor oficial da LOUD no Discord e participou como moderadora em projetos como Desafio PlayHard, Game Changer, Donas do Jogo e Genesis do GS.”"
+      desc: "Possui experiência em moderação e administração de comunidades Discord, com atuação em ambientes de grande atividade. Atuou como moderadora e Administradora no servidor oficial da LOUD no Discord e participou como moderadora em projetos como Desafio PlayHard, Game Changer, Donas do Jogo e Genesis do GS.”"
     },
     {
       name: "LC",
