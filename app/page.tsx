@@ -130,17 +130,19 @@ export default function Home() {
       <section id="experiencia" className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
 
   <h2 className="text-3xl font-bold text-center text-purple-400 mb-12">
+ {/* EXPERIÊNCIA */}
+<section id="experiencia" className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
+
+  <h2 className="text-3xl font-bold text-center text-purple-400 mb-12">
     Experiência
   </h2>
 
-  <div className="max-w-3xl mx-auto bg-[#141420] border border-white/5 rounded-xl p-6 space-y-4 text-gray-300">
+  <div className="max-w-3xl mx-auto bg-[#141420] border border-white/5 rounded-xl p-6 text-gray-300">
 
-  
-      Atuação em moderação de comunidades de grande porte com foco em suporte e organização.
-      Suporte operacional em ambientes ativos garantindo fluidez na comunicação.
-      Moderação em eventos e atividades em tempo real.
-      Apoio na manutenção de comunidades estruturadas e organizadas.
-    </p>
+    Atuação em moderação de comunidades de grande porte com foco em suporte e organização.  
+    Suporte operacional em ambientes ativos garantindo fluidez na comunicação.  
+    Moderação em eventos e atividades em tempo real.  
+    Apoio na manutenção de comunidades estruturadas e organizadas.
 
   </div>
 
