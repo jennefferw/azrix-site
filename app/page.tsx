@@ -80,33 +80,20 @@ export default function Home() {
   return (
     <main className="bg-[#05060a] text-white min-h-screen overflow-x-hidden scroll-smooth">
 
-      {/* SEO COMPLETO (NÃO ALTERA O SITE) */}
+      {/* SEO */}
       <Head>
         <title>Azrix - Gestão de Comunidades Discord</title>
-
         <meta name="description" content="Equipe especializada em moderação e gestão de comunidades Discord." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* Open Graph (Discord / WhatsApp preview) */}
-        <meta property="og:title" content="Azrix - Gestão de Comunidades" />
-        <meta property="og:description" content="Equipe especializada em moderação e gestão de comunidades Discord." />
-        <meta property="og:image" content="/logo.png" />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Azrix - Gestão de Comunidades" />
-        <meta name="twitter:description" content="Equipe especializada em moderação e gestão de comunidades Discord." />
-        <meta name="twitter:image" content="/logo.png" />
       </Head>
 
-      {/* FUNDO (SEM ALTERAÇÃO) */}
+      {/* FUNDO */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#05060a] to-black" />
         <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-purple-600/10 blur-[120px]" />
       </div>
 
-      {/* NAV (SEM MUDANÇA VISUAL) */}
+      {/* NAV */}
       <header className="fixed top-0 w-full bg-black/50 backdrop-blur-md border-b border-white/5 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
@@ -128,17 +115,14 @@ export default function Home() {
             ))}
           </nav>
 
-          <button
-            onClick={() => setMenuOpen(true)}
-            className="md:hidden text-2xl"
-          >
+          <button onClick={() => setMenuOpen(true)} className="md:hidden text-2xl">
             ☰
           </button>
 
         </div>
       </header>
 
-      {/* MOBILE MENU (SEM MUDAR UX FINAL) */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div className="fixed inset-0 bg-black/70 z-50 flex">
@@ -164,10 +148,124 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* TODO O RESTO DO SITE PERMANECE IGUAL VISUALMENTE */}
-      {/* HERO / SOBRE / EXPERIÊNCIA / EQUIPE / CONTATO SEM ALTERAÇÃO */}
+      {/* HERO */}
+      <section id="inicio" className="relative z-10 min-h-screen flex items-center justify-center text-center px-6">
 
-      {/* FOOTER FIX FINAL */}
+        <motion.div className="max-w-4xl">
+
+          <img src="/logo.png" className="w-72 md:w-96 mx-auto mb-10" />
+
+          <h1 className="text-5xl md:text-7xl font-black">
+            Azrix <span className="text-purple-400">Gestão de Comunidades</span>
+          </h1>
+
+          <p className="mt-6 text-gray-300 text-lg">
+            A Azrix é uma equipe especializada em moderação e gestão de comunidades Discord.
+          </p>
+
+        </motion.div>
+
+      </section>
+
+      {/* SOBRE */}
+      <section id="sobre" className="max-w-6xl mx-auto px-6 py-24">
+
+        <h2 className="text-3xl font-bold text-center text-purple-400 mb-12">
+          Sobre a Azrix
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+
+          <div className="bg-[#141420] p-6 rounded-xl">
+            Origem e estrutura da Azrix...
+          </div>
+
+          <div className="bg-[#141420] p-6 rounded-xl">
+            Experiência e foco da equipe...
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* EXPERIÊNCIA */}
+      <section id="experiencia" className="max-w-6xl mx-auto px-6 pb-24">
+
+        <h2 className="text-3xl font-bold text-center text-purple-400 mb-12">
+          Experiência
+        </h2>
+
+        <div className="bg-[#141420] p-6 rounded-xl text-gray-300">
+          Atuação em moderação de comunidades de grande porte com foco em suporte e organização.
+          Suporte operacional contínuo, eventos em tempo real e manutenção de comunidades estruturadas.
+        </div>
+
+      </section>
+
+      {/* EQUIPE */}
+      <section id="equipe" className="py-24 text-center">
+
+        <h2 className="text-3xl font-bold text-purple-400 mb-10">
+          Equipe Azrix
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
+
+          {members.map((m, i) => (
+            <div
+              key={i}
+              onClick={() => setSelected(m)}
+              className="bg-[#141420] p-6 rounded-xl cursor-pointer"
+            >
+              <h3 className="text-xl font-bold">{m.name}</h3>
+              <p className="text-purple-300">{m.role}</p>
+            </div>
+          ))}
+
+        </div>
+
+        <AnimatePresence>
+          {selected && (
+            <motion.div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+              <div className="bg-[#141420] p-6 rounded-xl max-w-md">
+                <h3 className="text-2xl text-purple-400">{selected.name}</h3>
+                <p className="text-purple-300">{selected.role}</p>
+                <p className="text-gray-300 mt-4">{selected.desc}</p>
+
+                <button
+                  onClick={() => setSelected(null)}
+                  className="mt-6 bg-purple-600 w-full py-2 rounded"
+                >
+                  Fechar
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+      </section>
+
+      {/* CONTATO */}
+      <section id="contato" className="text-center py-24">
+
+        <h2 className="text-3xl font-bold text-purple-400 mb-6">
+          Contato
+        </h2>
+
+        <p className="text-gray-300 mb-6">
+          Entre em contato para suporte ou gestão de comunidades.
+        </p>
+
+        <a
+          href="mailto:contatoazrix@gmail.com"
+          className="bg-purple-600 px-6 py-3 rounded"
+        >
+          Entrar em contato
+        </a>
+
+      </section>
+
+      {/* FOOTER FIXADO */}
       <footer className="relative z-10 text-center text-gray-500 py-8 pb-12">
         © 2026 Azrix — Gestão de Comunidades
       </footer>
