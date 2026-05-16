@@ -166,8 +166,7 @@ export default function Home() {
         >
 
           Atuação em moderação de comunidades de grande porte com foco em suporte e organização. Suporte operacional em
-          ambientes ativos garantindo fluidez na comunicação.<br />
-          Moderação em eventos e atividades em tempo real.<br />
+          ambientes ativos garantindo fluidez na comunicação. Moderação em eventos e atividades em tempo real.
           Apoio na manutenção de comunidades estruturadas e organizadas.
 
         </motion.div>
