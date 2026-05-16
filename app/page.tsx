@@ -248,7 +248,7 @@ export default function Home() {
       </section>
 
       {/* CONTATO (MELHORADO) */}
-      <section id="contato" className="text-center py-24">
+      <section id="contato" className="relative z-10 text-center py-24">
 
         <motion.h2
           initial={{ opacity: 0 }}
