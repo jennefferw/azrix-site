@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Home() {
 
@@ -54,6 +54,11 @@ export default function Home() {
     { label: "CONTATO", id: "contato" },
   ]
 
+  // 🔧 FIX 1 — garante que nada abre sozinho ao carregar
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [])
+
   return (
     <main className="bg-[#05060a] text-white min-h-screen overflow-x-hidden scroll-smooth">
 
@@ -79,7 +84,6 @@ export default function Home() {
             />
           </motion.h1>
 
-          {/* DESKTOP MENU */}
           <nav className="hidden md:flex gap-8 text-xs text-gray-300 tracking-widest">
             {navItems.map((item, i) => (
               <motion.a
@@ -93,7 +97,6 @@ export default function Home() {
             ))}
           </nav>
 
-          {/* MOBILE BUTTON (ADICIONADO) */}
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(true)}
@@ -106,7 +109,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* MOBILE MENU (ADICIONADO) */}
+      {/* MOBILE MENU (FIXADO MAS SEGURO) */}
       {menuOpen && (
         <div className="fixed inset-0 bg-black/70 z-50 flex">
 
@@ -132,6 +135,7 @@ export default function Home() {
 
           </div>
 
+          {/* 🔧 FIX 2 — garante fechar SEMPRE ao clicar fora */}
           <div
             className="flex-1"
             onClick={() => setMenuOpen(false)}
@@ -183,7 +187,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-6">
 
-          {[
+          {[...[
             {
               title: "Origem e Estrutura",
               text: "A Azrix nasce da experiência prática em comunidades Discord ativas, com foco em organização, suporte e estruturação de ambientes de grande porte."
@@ -192,7 +196,7 @@ export default function Home() {
               title: "Experiência e Foco",
               text: "A equipe atua com moderação e suporte operacional em comunidades, garantindo ambientes organizados e funcionais."
             }
-          ].map((item, i) => (
+          ]].map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 15 }}
@@ -228,11 +232,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto bg-[#141420] border border-white/5 rounded-xl p-6 text-gray-300 leading-relaxed"
         >
-
-          Atuação em moderação de comunidades de grande porte com foco em suporte e organização. Suporte operacional em
-          ambientes ativos garantindo fluidez na comunicação. Moderação em eventos e atividades em tempo real.
-          Apoio na manutenção de comunidades estruturadas e organizadas.
-
+          Atuação em moderação de comunidades de grande porte com foco em suporte e organização. Suporte operacional em ambientes ativos garantindo fluidez na comunicação. Moderação em eventos e atividades em tempo real. Apoio na manutenção de comunidades estruturadas e organizadas.
         </motion.div>
 
       </section>
