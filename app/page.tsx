@@ -6,6 +6,7 @@ import { useState } from "react"
 export default function Home() {
 
   const [selected, setSelected] = useState<any>(null)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const fadeUp = {
     hidden: { opacity: 0, y: 15 },
@@ -45,6 +46,14 @@ export default function Home() {
     }
   ]
 
+  const navItems = [
+    { label: "INÍCIO", id: "inicio" },
+    { label: "SOBRE", id: "sobre" },
+    { label: "EXPERIÊNCIA", id: "experiencia" },
+    { label: "EQUIPE", id: "equipe" },
+    { label: "CONTATO", id: "contato" },
+  ]
+
   return (
     <main className="bg-[#05060a] text-white min-h-screen overflow-x-hidden scroll-smooth">
 
@@ -63,48 +72,93 @@ export default function Home() {
             animate={{ opacity: 1 }}
             className="font-bold tracking-[0.35em] text-purple-400"
           >
-           <img
-  src="/logo.png"
-  alt="Azrix"
-  className="h-16 object-contain"
-/>
+            <img
+              src="/logo.png"
+              alt="Azrix"
+              className="h-16 object-contain"
+            />
           </motion.h1>
 
+          {/* DESKTOP MENU */}
           <nav className="hidden md:flex gap-8 text-xs text-gray-300 tracking-widest">
-            {["INÍCIO", "SOBRE", "EXPERIÊNCIA", "EQUIPE", "CONTATO"].map((item, i) => (
+            {navItems.map((item, i) => (
               <motion.a
                 key={i}
-                href={`#${item.toLowerCase()}`}
+                href={`#${item.id}`}
                 whileHover={{ scale: 1.1 }}
                 className="hover:text-purple-400 transition"
               >
-                {item}
+                {item.label}
               </motion.a>
             ))}
           </nav>
 
+          {/* MOBILE BUTTON (ADICIONADO) */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMenuOpen(true)}
+              className="text-white text-2xl"
+            >
+              ☰
+            </button>
+          </div>
+
         </div>
       </header>
+
+      {/* MOBILE MENU (ADICIONADO) */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex">
+
+          <div className="w-64 bg-[#141420] p-6">
+
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="text-white mb-6"
+            >
+              ✕
+            </button>
+
+            {navItems.map((item, i) => (
+              <a
+                key={i}
+                href={`#${item.id}`}
+                onClick={() => setMenuOpen(false)}
+                className="block py-3 text-gray-300 hover:text-purple-400"
+              >
+                {item.label}
+              </a>
+            ))}
+
+          </div>
+
+          <div
+            className="flex-1"
+            onClick={() => setMenuOpen(false)}
+          />
+
+        </div>
+      )}
 
       {/* HERO */}
       <section id="inicio" className="relative z-10 min-h-screen flex items-center justify-center text-center px-6">
 
         <motion.div
-  initial="hidden"
-  animate="show"
-  transition={{ staggerChildren: 0.15 }}
-  className="max-w-4xl"
->
+          initial="hidden"
+          animate="show"
+          transition={{ staggerChildren: 0.15 }}
+          className="max-w-4xl"
+        >
 
-  <img
-    src="/logo.png"
-    alt="Azrix Logo"
-    className="w-72 md:w-96 mx-auto mb-10 object-contain"
-  />
+          <img
+            src="/logo.png"
+            alt="Azrix Logo"
+            className="w-72 md:w-96 mx-auto mb-10 object-contain"
+          />
 
-  <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-black">
-    Azrix <span className="text-purple-400">Gestão de Comunidades</span>
-  </motion.h1>
+          <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-black">
+            Azrix <span className="text-purple-400">Gestão de Comunidades</span>
+          </motion.h1>
 
           <motion.p variants={fadeUp} className="mt-6 text-gray-300 text-lg leading-relaxed">
             A Azrix é uma equipe especializada em moderação e gestão de comunidades Discord,
@@ -257,32 +311,33 @@ export default function Home() {
 
       </section>
 
-      {/* CONTATO (MELHORADO) */}
+      {/* CONTATO */}
       <section id="contato" className="relative z-10 text-center py-24">
 
         <motion.h2
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  className="text-3xl font-bold text-purple-400 mb-6"
->
-  Contato
-</motion.h2>
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="text-3xl font-bold text-purple-400 mb-6"
+        >
+          Contato
+        </motion.h2>
 
-<motion.p
-  initial={{ opacity: 0, y: 10 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  className="text-gray-300 mb-6"
->
-  Entre em contato para suporte ou gestão de comunidades.
-</motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-gray-300 mb-6"
+        >
+          Entre em contato para suporte ou gestão de comunidades.
+        </motion.p>
 
-<motion.a
-  href="mailto:contatoazrix@gmail.com"
-  whileHover={{ scale: 1.05 }}
-  className="inline-block px-6 py-3 bg-purple-600 rounded hover:bg-purple-500 transition"
->
-  Entrar em contato
-</motion.a>
+        <motion.a
+          href="mailto:contatoazrix@gmail.com"
+          whileHover={{ scale: 1.05 }}
+          className="inline-block px-6 py-3 bg-purple-600 rounded hover:bg-purple-500 transition"
+        >
+          Entrar em contato
+        </motion.a>
+
       </section>
 
       {/* FOOTER */}
@@ -291,7 +346,5 @@ export default function Home() {
       </footer>
 
     </main>
-
-  
   )
 }
