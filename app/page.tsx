@@ -66,7 +66,7 @@ export default function Home() {
            <img
   src="/logo.png"
   alt="Azrix"
-  className="h-10 object-contain"
+  className="h-16 object-contain"
 />
           </motion.h1>
 
@@ -94,15 +94,21 @@ export default function Home() {
   className="w-64 md:w-80 mx-auto mb-10"
 />
         <motion.div
-          initial="hidden"
-          animate="show"
-          transition={{ staggerChildren: 0.15 }}
-          className="max-w-4xl"
-        >
+  initial="hidden"
+  animate="show"
+  transition={{ staggerChildren: 0.15 }}
+  className="max-w-4xl"
+>
 
-          <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-black">
-            Azrix <span className="text-purple-400">Gestão de Comunidades</span>
-          </motion.h1>
+  <img
+    src="/logo.png"
+    alt="Azrix Logo"
+    className="w-72 md:w-96 mx-auto mb-10 object-contain"
+  />
+
+  <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-black">
+    Azrix <span className="text-purple-400">Gestão de Comunidades</span>
+  </motion.h1>
 
           <motion.p variants={fadeUp} className="mt-6 text-gray-300 text-lg leading-relaxed">
             A Azrix é uma equipe especializada em moderação e gestão de comunidades Discord,
