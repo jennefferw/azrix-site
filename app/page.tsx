@@ -17,32 +17,32 @@ export default function Home() {
     {
       name: "Jenne",
       role: "Administração e Estrutura",
-      desc: "Possui experiência em moderação e administração de comunidades Discord, com atuação em ambientes de grande atividade. Trabalha com organização, suporte e manutenção de comunidades, garantindo fluidez e bom funcionamento geral."
+      desc: "Possui experiência em moderação e administração de comunidades Discord, com atuação em ambientes de grande atividade. Trabalha com organização, suporte e manutenção de comunidades, garantindo fluidez e bom funcionamento geral. Atuou como moderadora e Administradora no servidor oficial da LOUD no Discord e participou como moderadora em projetos como Desafio PlayHard, Game Changer e Donas do Jogo.”"
     },
     {
       name: "LC",
       role: "Suporte e Moderação",
-      desc: "Possui experiência em moderação de comunidades Discord, com foco no suporte a membros e na resolução de problemas em ambientes ativos. Também contribui de forma colaborativa nas decisões da equipe."
+      desc: "Possui experiência em moderação de comunidades Discord, com foco no suporte a membros e na resolução de problemas em ambientes ativos. Atuou como moderador no servidor oficial da LOUD no Discord."
     },
     {
       name: "Camisa 7",
       role: "Moderação e Estratégia",
-      desc: "Possui experiência em moderação e suporte em comunidades Discord, atuando em interações com membros e contribuindo para a organização das atividades internas."
+      desc: "Possui experiência em moderação e suporte em comunidades Discord, atuando em interações com membros e contribuindo para a organização das atividades internas. Atuou como moderador no servidor oficial da LOUD Discord."
     },
     {
       name: "Bruxo",
       role: "Engajamento e Suporte",
-      desc: "Possui experiência em moderação de comunidades Discord, com foco em interações com membros e suporte às atividades da comunidade."
+      desc: "Possui experiência em moderação de comunidades Discord, com foco em interações com membros e suporte às atividades da comunidade. Atuou como moderador no servidor oficial da LOUD Discord."
     },
     {
       name: "Baiano",
       role: "Interação e Moderação",
-      desc: "Possui experiência em moderação de comunidades Discord, com atuação em interações com membros e apoio à organização do ambiente."
+      desc: "Possui experiência em moderação de comunidades Discord, com atuação em interações com membros e apoio à organização do ambiente. Atuou como moderador no servidor oficial da LOUD Discord."
     },
     {
       name: "Juleas",
       role: "Suporte Comunitário",
-      desc: "Possui experiência em moderação de comunidades Discord, com foco em suporte e acompanhamento de interações dentro da comunidade."
+      desc: "Possui experiência em moderação de comunidades Discord, com foco em suporte e acompanhamento de interações dentro da comunidade. Atuou como moderadora no servidor oficial da LOUD Discord."
     }
   ]
 
