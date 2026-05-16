@@ -135,19 +135,10 @@ export default function Home() {
 
   <div className="max-w-3xl mx-auto bg-[#141420] border border-white/5 rounded-xl p-6 space-y-4 text-gray-300">
 
-    <p>
+  
       Atuação em moderação de comunidades de grande porte com foco em suporte e organização.
-    </p>
-
-    <p>
       Suporte operacional em ambientes ativos garantindo fluidez na comunicação.
-    </p>
-
-    <p>
       Moderação em eventos e atividades em tempo real.
-    </p>
-
-    <p>
       Apoio na manutenção de comunidades estruturadas e organizadas.
     </p>
 
