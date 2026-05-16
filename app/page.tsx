@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function Home() {
 
@@ -54,20 +54,6 @@ export default function Home() {
     { label: "CONTATO", id: "contato" },
   ]
 
-  /* 🔧 REFINO 1 — fechar menu no ESC */
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false)
-    }
-    window.addEventListener("keydown", handleKey)
-    return () => window.removeEventListener("keydown", handleKey)
-  }, [])
-
-  /* 🔧 REFINO 2 — scroll suave reforçado */
-  useEffect(() => {
-    document.documentElement.style.scrollBehavior = "smooth"
-  }, [])
-
   return (
     <main className="bg-[#05060a] text-white min-h-screen overflow-x-hidden scroll-smooth">
 
@@ -93,25 +79,23 @@ export default function Home() {
             />
           </motion.h1>
 
-          {/* DESKTOP MENU (REFINADO HOVER VISUAL) */}
           <nav className="hidden md:flex gap-8 text-xs text-gray-300 tracking-widest">
             {navItems.map((item, i) => (
               <motion.a
                 key={i}
                 href={`#${item.id}`}
-                whileHover={{ scale: 1.08 }}
-                className="hover:text-purple-400 transition duration-200"
+                whileHover={{ scale: 1.1 }}
+                className="hover:text-purple-400 transition"
               >
                 {item.label}
               </motion.a>
             ))}
           </nav>
 
-          {/* MOBILE BUTTON */}
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(true)}
-              className="text-white text-2xl active:scale-95 transition"
+              className="text-white text-2xl"
             >
               ☰
             </button>
@@ -120,15 +104,15 @@ export default function Home() {
         </div>
       </header>
 
-      {/* MOBILE MENU (REFINADO ANIMAÇÃO SEM MUDAR ESTRUTURA) */}
+      {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-black/70 z-50 flex animate-in fade-in duration-200">
+        <div className="fixed inset-0 bg-black/70 z-50 flex">
 
-          <div className="w-64 bg-[#141420] p-6 animate-in slide-in-from-left duration-200">
+          <div className="w-64 bg-[#141420] p-6">
 
             <button
               onClick={() => setMenuOpen(false)}
-              className="text-white mb-6 active:scale-95 transition"
+              className="text-white mb-6"
             >
               ✕
             </button>
@@ -138,7 +122,7 @@ export default function Home() {
                 key={i}
                 href={`#${item.id}`}
                 onClick={() => setMenuOpen(false)}
-                className="block py-3 text-gray-300 hover:text-purple-400 transition"
+                className="block py-3 text-gray-300"
               >
                 {item.label}
               </a>
@@ -146,45 +130,115 @@ export default function Home() {
 
           </div>
 
-          <div
-            className="flex-1"
-            onClick={() => setMenuOpen(false)}
-          />
+          <div className="flex-1" onClick={() => setMenuOpen(false)} />
 
         </div>
       )}
 
       {/* HERO */}
-      <section id="inicio" className="relative z-10 min-h-screen flex items-center justify-center text-center px-6">
+      <section id="inicio" className="min-h-screen flex items-center justify-center text-center px-6">
 
-        <motion.div
-          initial="hidden"
-          animate="show"
-          transition={{ staggerChildren: 0.15 }}
-          className="max-w-4xl"
-        >
+        <div>
+          <img src="/logo.png" className="w-72 md:w-96 mx-auto mb-10" />
 
-          <img
-            src="/logo.png"
-            alt="Azrix Logo"
-            className="w-72 md:w-96 mx-auto mb-10 object-contain"
-          />
-
-          <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-black">
+          <h1 className="text-5xl md:text-7xl font-black">
             Azrix <span className="text-purple-400">Gestão de Comunidades</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p variants={fadeUp} className="mt-6 text-gray-300 text-lg leading-relaxed">
-            A Azrix é uma equipe especializada em moderação e gestão de comunidades Discord,
-            focada na organização, suporte e estruturação de servidores de grande porte.
-          </motion.p>
-
-        </motion.div>
+          <p className="mt-6 text-gray-300 text-lg">
+            A Azrix é uma equipe especializada em moderação e gestão de comunidades Discord.
+          </p>
+        </div>
 
       </section>
 
-      {/* ⚠️ resto do teu código continua exatamente igual */}
-      {/* não alterei NADA das tuas seções */}
+      {/* SOBRE */}
+      <section id="sobre" className="max-w-6xl mx-auto px-6 py-24">
+        <h2 className="text-3xl font-bold text-center text-purple-400 mb-12">
+          Sobre a Azrix
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-[#141420] p-6 rounded-xl">
+            Origem e estrutura
+          </div>
+          <div className="bg-[#141420] p-6 rounded-xl">
+            Experiência e foco
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIÊNCIA */}
+      <section id="experiencia" className="max-w-6xl mx-auto px-6 pb-24">
+        <h2 className="text-3xl font-bold text-center text-purple-400 mb-12">
+          Experiência
+        </h2>
+
+        <div className="bg-[#141420] p-6 rounded-xl text-gray-300">
+          Atuação em moderação de comunidades de grande porte...
+        </div>
+      </section>
+
+      {/* EQUIPE */}
+      <section id="equipe" className="py-24 text-center">
+        <h2 className="text-3xl font-bold text-purple-400 mb-10">
+          Equipe Azrix
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
+          {members.map((m, i) => (
+            <div
+              key={i}
+              onClick={() => setSelected(m)}
+              className="bg-[#141420] p-6 rounded-xl cursor-pointer"
+            >
+              <h3 className="text-xl font-bold">{m.name}</h3>
+              <p className="text-purple-300">{m.role}</p>
+            </div>
+          ))}
+        </div>
+
+        {selected && (
+          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+            <div className="bg-[#141420] p-6 rounded-xl max-w-md">
+              <h3 className="text-2xl text-purple-400">{selected.name}</h3>
+              <p className="text-purple-300">{selected.role}</p>
+              <p className="text-gray-300 mt-4">{selected.desc}</p>
+
+              <button
+                onClick={() => setSelected(null)}
+                className="mt-6 bg-purple-600 w-full py-2 rounded"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        )}
+
+      </section>
+
+      {/* CONTATO */}
+      <section id="contato" className="text-center py-24">
+        <h2 className="text-3xl font-bold text-purple-400 mb-6">
+          Contato
+        </h2>
+
+        <p className="text-gray-300 mb-6">
+          Entre em contato para suporte ou gestão de comunidades.
+        </p>
+
+        <a
+          href="mailto:contatoazrix@gmail.com"
+          className="bg-purple-600 px-6 py-3 rounded"
+        >
+          Entrar em contato
+        </a>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="text-center text-gray-500 py-8">
+        © 2026 Azrix — Gestão de Comunidades
+      </footer>
 
     </main>
   )
