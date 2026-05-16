@@ -63,7 +63,11 @@ export default function Home() {
             animate={{ opacity: 1 }}
             className="font-bold tracking-[0.35em] text-purple-400"
           >
-            AZRIX
+           <img
+  src="/logo.png"
+  alt="Azrix"
+  className="h-10 object-contain"
+/>
           </motion.h1>
 
           <nav className="hidden md:flex gap-8 text-xs text-gray-300 tracking-widest">
@@ -84,7 +88,11 @@ export default function Home() {
 
       {/* HERO */}
       <section id="inicio" className="relative z-10 min-h-screen flex items-center justify-center text-center px-6">
-
+<img
+  src="/logo.png"
+  alt="Azrix Logo"
+  className="w-64 md:w-80 mx-auto mb-10"
+/>
         <motion.div
           initial="hidden"
           animate="show"
