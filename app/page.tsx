@@ -59,7 +59,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
           <h1 className="font-bold tracking-[0.35em] text-purple-400">
-            AZRIX teste
+            AZRIX
           </h1>
 
           <nav className="hidden md:flex gap-8 text-xs text-gray-300 tracking-widest">
