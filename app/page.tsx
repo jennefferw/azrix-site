@@ -88,11 +88,7 @@ export default function Home() {
 
       {/* HERO */}
       <section id="inicio" className="relative z-10 min-h-screen flex items-center justify-center text-center px-6">
-<img
-  src="/logo.png"
-  alt="Azrix Logo"
-  className="w-64 md:w-80 mx-auto mb-10"
-/>
+
         <motion.div
   initial="hidden"
   animate="show"
