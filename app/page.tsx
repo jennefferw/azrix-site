@@ -27,22 +27,22 @@ export default function Home() {
     {
       name: "Camisa 7",
       role: "Moderação e Estratégia",
-      desc: "Possui experiência em moderação e suporte em comunidades Discord, atuando em interações com membros e contribuindo para a organização das atividades internas. Atuou como moderador no servidor oficial da LOUD Discord."
+      desc: "Possui experiência em moderação e suporte em comunidades Discord, atuando em interações com membros e contribuindo para a organização das atividades internas. Atuou como moderador no servidor oficial da LOUD no Discord."
     },
     {
       name: "Bruxo",
       role: "Engajamento e Suporte",
-      desc: "Possui experiência em moderação de comunidades Discord, com foco em interações com membros e suporte às atividades da comunidade. Atuou como moderador no servidor oficial da LOUD Discord."
+      desc: "Possui experiência em moderação de comunidades Discord, com foco em interações com membros e suporte às atividades da comunidade. Atuou como moderador no servidor oficial da LOUD no Discord."
     },
     {
       name: "Baiano",
       role: "Interação e Moderação",
-      desc: "Possui experiência em moderação de comunidades Discord, com atuação em interações com membros e apoio à organização do ambiente. Atuou como moderador no servidor oficial da LOUD Discord."
+      desc: "Possui experiência em moderação de comunidades Discord, com atuação em interações com membros e apoio à organização do ambiente. Atuou como moderador no servidor oficial da LOUD no Discord."
     },
     {
       name: "Juleas",
       role: "Suporte Comunitário",
-      desc: "Possui experiência em moderação de comunidades Discord, com foco em suporte e acompanhamento de interações dentro da comunidade. Atuou como moderadora no servidor oficial da LOUD Discord."
+      desc: "Possui experiência em moderação de comunidades Discord, com foco em suporte e acompanhamento de interações dentro da comunidade. Atuou como moderadora no servidor oficial da LOUD no Discord."
     }
   ]
 
