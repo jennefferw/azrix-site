@@ -165,8 +165,8 @@ export default function Home() {
           className="max-w-3xl mx-auto bg-[#141420] border border-white/5 rounded-xl p-6 text-gray-300 leading-relaxed"
         >
 
-          Atuação em moderação de comunidades de grande porte com foco em suporte e organização.<br />
-          Suporte operacional em ambientes ativos garantindo fluidez na comunicação.<br />
+          Atuação em moderação de comunidades de grande porte com foco em suporte e organização. Suporte operacional em
+          ambientes ativos garantindo fluidez na comunicação.<br />
           Moderação em eventos e atividades em tempo real.<br />
           Apoio na manutenção de comunidades estruturadas e organizadas.
 
