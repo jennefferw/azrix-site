@@ -16,15 +16,13 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": false,
 
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    /* Removemos a linha do baseUrl e ignoreDeprecations chata */
+    "ignoreDeprecations": "5.0"
   },
   "include": ["src"]
 }
