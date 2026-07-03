@@ -1,0 +1,37 @@
+/* 1. O IMPORT DA FONTE PRECISA SER A PRIMEIRA LINHA ABSOLUTA DO ARQUIVO */
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  --color-card: #09090b;
+  --color-border: #27272a;
+  --color-primary: #a855f7;
+  --color-primary-foreground: #ffffff;
+  --color-muted-foreground: #a1a1aa;
+  --color-azrix-dark: #09090b;
+  --color-azrix-gray: #18181b;
+
+  --font-display: "Bebas Neue", sans-serif;
+  --font-sans: "Barlow", sans-serif;
+}
+
+/* --- REGRAS DE ESTILO GLOBAIS --- */
+@layer base {
+  html, body {
+    background-color: #09090b;
+    color: #fafafa;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  h1 {
+    letter-spacing: 0.02em;
+  }
+}

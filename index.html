@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Azrix — Tecnologia para comunidades</title>
+    
+    <!-- 1. LINKS OFICIAIS DO GOOGLE FONTS (CORRIGIDOS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <!-- 2. FORÇA BRUTA GLOBAL CASO O TAILWIND V4 FALHE EM AMBIENTE LOCAL -->
+    <style>
+      h1, .font-display, [class*="font-display"] {
+        font-family: 'Bebas Neue', sans-serif !important;
+        letter-spacing: 0.03em !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
